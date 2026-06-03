@@ -15,6 +15,14 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  ui: {
+    colors: {
+      primary: 'brand',
+      secondary: 'navy',
+      neutral: 'neutral'
+    }
+  },
+
   content: {
     experimental: {
       sqliteConnector: 'native'

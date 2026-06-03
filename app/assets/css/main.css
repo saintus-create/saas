@@ -6,17 +6,31 @@
 @theme static {
   --font-sans: 'Public Sans', sans-serif;
 
-  --color-green-50: #EFFDF5;
-  --color-green-100: #D9FBE8;
-  --color-green-200: #B3F5D1;
-  --color-green-300: #75EDAE;
-  --color-green-400: #00DC82;
-  --color-green-500: #00C16A;
-  --color-green-600: #00A155;
-  --color-green-700: #007F45;
-  --color-green-800: #016538;
-  --color-green-900: #0A5331;
-  --color-green-950: #052E16;
+  /* Orange Brand */
+  --color-brand-50:  #fff4ee;
+  --color-brand-100: #ffe6d5;
+  --color-brand-200: #ffc9a8;
+  --color-brand-300: #ffa270;
+  --color-brand-400: #ff7037;
+  --color-brand-500: #f15a22;
+  --color-brand-600: #e03d10;
+  --color-brand-700: #b82d0e;
+  --color-brand-800: #932614;
+  --color-brand-900: #772213;
+  --color-brand-950: #400e07;
+
+  /* Navy */
+  --color-navy-50:  #f0f3f9;
+  --color-navy-100: #dde4f0;
+  --color-navy-200: #c3cfe4;
+  --color-navy-300: #9aafd2;
+  --color-navy-400: #6b87bb;
+  --color-navy-500: #4a67a7;
+  --color-navy-600: #3a528d;
+  --color-navy-700: #314373;
+  --color-navy-800: #2c3b60;
+  --color-navy-900: #1e2d4e;
+  --color-navy-950: #111827;
 }
 
 .dark {
