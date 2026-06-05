@@ -1,0 +1,3 @@
+- Zod schemas use enum constraints for UI component props (variant, color, size, orientation) to ensure type-safe component configuration.
+- Content collections define reusable schema factories (createBaseSchema, createFeatureItemSchema, createLinkSchema, createImageSchema) for consistent field definitions across collections.
+- All content schemas enforce non-empty string validation using z.string().nonempty() for required text fields.

@@ -1,0 +1,6 @@
+- Built on Nuxt 4 framework with modular architecture using @nuxt/ui, @nuxt/content, @nuxt/image, and @nuxt/fonts modules.
+- Content management via @nuxt/content with schema-validated collections defined in content.config.ts using Zod.
+- UI styling through Tailwind CSS v4 with custom brand colors configured in nuxt.config.ts.
+- Static site generation support with Nitro prerendering for root route and SEO optimization via nuxt-og-image.
+- TypeScript configuration split into app, server, shared, and node contexts via Nuxt's generated tsconfig references.
+- Package management via pnpm workspace with selective build permissions for native dependencies.

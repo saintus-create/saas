@@ -1,0 +1,5 @@
+- Uses pnpm as package manager (pnpm@11.5.0) with workspace configuration allowing builds for sharp only.
+- Development: `pnpm dev` starts server on localhost:3000.
+- Production: `pnpm build` then `pnpm preview` for local testing.
+- Post-install hook runs `nuxt prepare` to generate TypeScript configurations.
+- Linting via `pnpm lint` using ESLint with stylistic rules (1TBS brace style, no trailing commas).

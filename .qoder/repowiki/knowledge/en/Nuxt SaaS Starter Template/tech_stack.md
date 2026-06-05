@@ -1,0 +1,1 @@
+Nuxt 4 with VueUse integration, Tailwind CSS v4, Zod schema validation, Lucide icons, and SQLite native connector for content storage.

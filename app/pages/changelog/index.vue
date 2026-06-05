@@ -30,6 +30,8 @@ defineOgImage('Saas', { title, description })
           v-for="(version, index) in versions"
           :key="index"
           v-bind="version"
+          class="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+          :style="{ animationDelay: `${index * 100}ms` }"
         >
           <template #body>
             <ContentRenderer :value="version.body" />

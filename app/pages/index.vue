@@ -20,6 +20,7 @@ useSeoMeta({
       :title="page.title"
       :description="page.description"
       :links="page.hero.links"
+      class="animate-in fade-in slide-in-from-bottom-4 duration-700"
     >
       <template #top>
         <HeroBackground />
@@ -43,6 +44,8 @@ useSeoMeta({
       :orientation="section.orientation"
       :reverse="section.reverse"
       :features="section.features"
+      class="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+      :style="{ animationDelay: `${(index + 1) * 150}ms` }"
     >
       <ImagePlaceholder />
     </UPageSection>
@@ -57,6 +60,8 @@ useSeoMeta({
           :key="index"
           v-bind="item"
           spotlight
+          class="animate-in fade-in zoom-in-95 duration-500 fill-mode-both"
+          :style="{ animationDelay: `${index * 100}ms` }"
         />
       </UPageGrid>
     </UPageSection>
@@ -74,6 +79,8 @@ useSeoMeta({
           variant="subtle"
           :description="testimonial.quote"
           :ui="{ description: 'before:content-[open-quote] after:content-[close-quote]' }"
+          class="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+          :style="{ animationDelay: `${index * 75}ms` }"
         >
           <template #footer>
             <UUser
@@ -90,9 +97,8 @@ useSeoMeta({
     <UPageCTA
       v-bind="page.cta"
       variant="naked"
-      class="overflow-hidden"
-    >
-      <LazyStarsBg />
-    </UPageCTA>
+      class="overflow-hidden animate-in fade-in duration-700 fill-mode-both"
+      style="animation-delay: 200ms"
+    />
   </div>
 </template>

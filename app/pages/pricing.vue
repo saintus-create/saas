@@ -57,12 +57,14 @@ const items = ref([
           v-bind="plan"
           :price="isYearly === '1' ? plan.price.year : plan.price.month"
           :billing-cycle="isYearly === '1' ? '/year' : '/month'"
+          class="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+          :style="{ animationDelay: `${index * 100}ms` }"
         />
       </UPricingPlans>
     </UContainer>
 
     <UPageSection>
-      <UPageLogos>
+      <UPageLogos class="animate-in fade-in duration-500">
         <UIcon
           v-for="icon in page.logos.icons"
           :key="icon"
@@ -81,10 +83,11 @@ const items = ref([
         :unmount-on-hide="false"
         :default-value="['0']"
         type="multiple"
-        class="max-w-3xl mx-auto"
+        class="max-w-3xl mx-auto animate-in fade-in duration-500 fill-mode-both"
+        style="animation-delay: 100ms"
         :ui="{
-          trigger: 'text-base text-highlighted',
-          body: 'text-base text-muted'
+          trigger: 'text-md text-highlighted',
+          body: 'text-md text-muted'
         }"
       />
     </UPageSection>

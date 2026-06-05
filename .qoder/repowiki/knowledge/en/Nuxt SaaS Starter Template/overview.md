@@ -1,0 +1,1 @@
+A pre-configured Nuxt 4 starter template for building SaaS applications with landing pages, documentation, pricing, and blog sections.

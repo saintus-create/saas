@@ -1,0 +1,21 @@
+schema_version: 1
+module_path: ""
+title: Nuxt SaaS Starter Template
+scope:
+    - .editorconfig
+    - .gitignore
+    - README.md
+    - content.config.ts
+    - eslint.config.mjs
+    - nuxt.config.ts
+    - package-lock.json
+    - package.json
+    - pnpm-lock.yaml
+    - pnpm-workspace.yaml
+    - renovate.json
+    - tsconfig.json
+    - .env.example
+    - LICENSE
+source_files: []
+depends_on: []
+related_to: []

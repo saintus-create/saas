@@ -1,0 +1,28 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: en-US
+branch: main
+exported_at: "2026-06-03T10:23:04Z"
+modules:
+    "":
+        dir_name: Nuxt SaaS Starter Template
+        title: Nuxt SaaS Starter Template
+        scope:
+            - .editorconfig
+            - .gitignore
+            - README.md
+            - content.config.ts
+            - eslint.config.mjs
+            - nuxt.config.ts
+            - package-lock.json
+            - package.json
+            - pnpm-lock.yaml
+            - pnpm-workspace.yaml
+            - renovate.json
+            - tsconfig.json
+            - .env.example
+            - LICENSE
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []

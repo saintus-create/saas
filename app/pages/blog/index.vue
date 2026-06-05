@@ -39,6 +39,8 @@ defineOgImage('Saas', { title, description })
           :orientation="index === 0 ? 'horizontal' : 'vertical'"
           :class="[index === 0 && 'col-span-full']"
           variant="naked"
+          class="animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both"
+          :style="{ animationDelay: `${index * 75}ms` }"
           :ui="{
             description: 'line-clamp-2'
           }"
