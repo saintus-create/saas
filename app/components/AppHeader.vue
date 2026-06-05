@@ -47,14 +47,14 @@ const items = computed(() => [{
         color="neutral"
         variant="outline"
         to="/login"
-        class="hidden lg:inline-flex"
+        class="hidden lg:inline-flex font-semibold"
       />
 
       <UButton
         label="Sign up"
         color="neutral"
         trailing-icon="i-lucide-arrow-right"
-        class="hidden lg:inline-flex"
+        class="hidden lg:inline-flex font-semibold"
         to="/signup"
       />
     </template>

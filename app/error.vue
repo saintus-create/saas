@@ -44,7 +44,7 @@ const is404 = computed(() => props.error?.statusCode === 404)
 <template>
   <div class="min-h-screen flex flex-col bg-white dark:bg-neutral-950">
     <!-- USWDS Official Government Banner -->
-    <div class="bg-[#f0f0f0] dark:bg-neutral-800 border-b border-[#dfe1e2] dark:border-neutral-700">
+    <div class="bg-gray-10 dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700">
       <div class="max-w-7xl mx-auto px-4 py-1 flex items-center gap-2">
         <svg class="w-4 h-4 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 491.522 491.522">
           <path fill="#BF0A30" d="M0 0h491.522v37.808H0z" />
@@ -55,19 +55,19 @@ const is404 = computed(() => props.error?.statusCode === 404)
           <path fill="#BF0A30" d="M0 151.233h491.522v37.808H0z" />
           <path fill="#FFFFFF" d="M0 189.041h491.522v37.808H0z" />
         </svg>
-        <p class="text-xs text-[#1b1b1b] dark:text-neutral-300">
+        <p class="text-body-xs text-[#1b1b1b] dark:text-neutral-300">
           An official website of the United States government
         </p>
       </div>
     </div>
 
     <!-- USWDS Site Header -->
-    <header class="bg-[#162e51] text-white">
+    <header class="bg-navy-90 text-white">
       <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         <NuxtLink to="/" class="flex items-center gap-3 hover:opacity-90 transition-opacity">
           <AppLogo class="h-8 w-auto text-white" />
         </NuxtLink>
-        <div class="text-right text-xs text-blue-200">
+        <div class="text-right text-body-xs text-blue-20">
           <p class="font-semibold">Agency Contact Center</p>
           <p>(800) 555-0100 • Mon–Fri 8am–6pm ET</p>
         </div>
@@ -78,21 +78,21 @@ const is404 = computed(() => props.error?.statusCode === 404)
     <main class="flex-1">
       <div class="max-w-3xl mx-auto px-4 py-16">
         <!-- Breadcrumb -->
-        <nav class="text-xs text-neutral-500 dark:text-neutral-400 mb-8">
-          <NuxtLink to="/" class="text-[#005ea2] hover:underline">Home</NuxtLink>
+        <nav class="text-body-xs text-neutral-500 dark:text-neutral-400 mb-8">
+          <NuxtLink to="/" class="text-blue-50 hover:underline">Home</NuxtLink>
           <span class="mx-1">/</span>
           <span>Page not found</span>
         </nav>
 
-        <h1 class="text-3xl font-bold text-[#1b1b1b] dark:text-white mb-4">
+        <h1 class="text-heading-lg font-bold text-[#1b1b1b] dark:text-white mb-4">
           Page not found
         </h1>
 
-        <p class="text-md text-neutral-600 dark:text-neutral-400 mb-2">
+        <p class="text-body-md text-neutral-600 dark:text-neutral-400 mb-2">
           We're sorry, we can't find the page you're looking for. It may have been moved or no longer exists. Try one of the options below.
         </p>
 
-        <p class="text-sm text-neutral-500 dark:text-neutral-400 mb-8">
+        <p class="text-body-sm text-neutral-500 dark:text-neutral-400 mb-8">
           Error code: {{ error?.statusCode || 404 }}
         </p>
 
@@ -100,7 +100,7 @@ const is404 = computed(() => props.error?.statusCode === 404)
           <UButton
             label="Go back"
             size="lg"
-            class="bg-[#005ea2] hover:bg-[#1a4480] text-white"
+            class="bg-blue-50 hover:bg-blue-60 text-white font-semibold"
             icon="i-lucide-arrow-left"
             @click="() => history.back()"
           />
@@ -108,21 +108,21 @@ const is404 = computed(() => props.error?.statusCode === 404)
             label="Continue to homepage"
             size="lg"
             variant="outline"
-            class="border-[#005ea2] text-[#005ea2] hover:bg-[#005ea2]/5"
+            class="border-blue-50 text-blue-50 hover:bg-blue-50/5 font-semibold"
             to="/"
           />
         </div>
 
         <!-- Helpful links -->
         <div class="border-t border-neutral-200 dark:border-neutral-700 pt-8">
-          <p class="text-sm font-semibold text-[#1b1b1b] dark:text-white mb-4">
+          <p class="text-body-sm font-semibold text-[#1b1b1b] dark:text-white mb-4">
             You might be looking for:
           </p>
           <ul class="space-y-2">
             <li v-for="link in links" :key="link.to">
               <NuxtLink
                 :to="link.to"
-                class="flex items-center gap-2 text-sm text-[#005ea2] hover:underline"
+                class="flex items-center gap-2 text-body-sm text-blue-50 hover:underline"
               >
                 <UIcon :name="link.icon" class="w-4 h-4" />
                 {{ link.label }}
@@ -134,13 +134,13 @@ const is404 = computed(() => props.error?.statusCode === 404)
     </main>
 
     <!-- USWDS Footer -->
-    <footer class="bg-[#162e51] text-white">
+    <footer class="bg-navy-90 text-white">
       <div class="max-w-7xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <AppLogo class="h-6 w-auto text-white mb-2" />
-          <p class="text-xs text-blue-200">An official website of the U.S. government</p>
+          <p class="text-body-xs text-blue-20">An official website of the U.S. government</p>
         </div>
-        <nav class="flex gap-4 text-xs text-blue-200 flex-wrap">
+        <nav class="flex gap-4 text-body-xs text-blue-20 flex-wrap">
           <NuxtLink to="/" class="hover:text-white transition-colors">Contact</NuxtLink>
           <NuxtLink to="/" class="hover:text-white transition-colors">Policies</NuxtLink>
           <NuxtLink to="/" class="hover:text-white transition-colors">Getting started</NuxtLink>

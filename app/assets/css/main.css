@@ -7,52 +7,70 @@
 @theme static {
   --font-sans: 'Public Sans', sans-serif;
 
-  /* USWDS Type Scale */
-  --text-2xs: 0.625rem;     /* 10px */
-  --text-xs: 0.75rem;       /* 12px */
-  --text-sm: 0.875rem;      /* 14px */
-  --text-md: 1rem;          /* 16px */
+  /* USWDS Type Scale - Official Design Kit Values */
+  --text-3xs: 0.8125rem;    /* 13px */
+  --text-2xs: 0.875rem;     /* 14px */
+  --text-xs: 0.9375rem;     /* 15px */
+  --text-sm: 1rem;          /* 16px */
+  --text-md: 1.0625rem;     /* 17px - USWDS default body */
   --text-lg: 1.125rem;      /* 18px */
   --text-xl: 1.25rem;       /* 20px */
   --text-2xl: 1.5rem;       /* 24px */
-  --text-3xl: 1.75rem;      /* 28px */
-  --text-4xl: 2rem;         /* 32px */
-  --text-5xl: 2.5rem;       /* 40px */
-  --text-6xl: 3rem;         /* 48px */
+  --text-3xl: 2rem;         /* 32px */
+  --text-4xl: 2.5rem;       /* 40px */
+  --text-5xl: 3rem;         /* 48px */
 
-  /* USWDS Default Heading Sizes */
-  --text-h1: 2.44rem;       /* ~39px */
-  --text-h2: 1.95rem;       /* ~31px */
-  --text-h3: 1.34rem;       /* ~21px */
-  --text-h4: 1.07rem;       /* ~17px */
-  --text-h5: 0.93rem;       /* ~15px */
-  --text-h6: 0.87rem;       /* ~14px */
+  /* USWDS Heading Tokens */
+  --text-heading-xs: 1.0625rem;    /* 17px - h6 */
+  --text-heading-sm: 1.25rem;      /* 20px - h5 */
+  --text-heading-md: 1.5rem;       /* 24px - h4 */
+  --text-heading-lg: 2rem;         /* 32px - h3 */
+  --text-heading-xl: 2.5rem;       /* 40px - h2 */
+  --text-heading-2xl: 3rem;        /* 48px - h1 */
 
-  /* Orange Brand */
-  --color-brand-50:  #fff4ee;
-  --color-brand-100: #ffe6d5;
-  --color-brand-200: #ffc9a8;
-  --color-brand-300: #ffa270;
-  --color-brand-400: #ff7037;
-  --color-brand-500: #f15a22;
-  --color-brand-600: #e03d10;
-  --color-brand-700: #b82d0e;
-  --color-brand-800: #932614;
-  --color-brand-900: #772213;
-  --color-brand-950: #400e07;
+  /* USWDS Body Tokens */
+  --text-body-xs: 0.8125rem;       /* 13px */
+  --text-body-sm: 0.9375rem;       /* 15px */
+  --text-body-md: 1.0625rem;       /* 17px - default */
+  --text-body-lg: 1.125rem;        /* 18px */
 
-  /* Navy */
-  --color-navy-50:  #f0f3f9;
-  --color-navy-100: #dde4f0;
-  --color-navy-200: #c3cfe4;
-  --color-navy-300: #9aafd2;
-  --color-navy-400: #6b87bb;
-  --color-navy-500: #4a67a7;
-  --color-navy-600: #3a528d;
-  --color-navy-700: #314373;
-  --color-navy-800: #2c3b60;
-  --color-navy-900: #1e2d4e;
-  --color-navy-950: #111827;
+  /* USWDS Blue - Primary Brand */
+  --color-blue-5:  #eff6fb;
+  --color-blue-10: #d9e8f6;
+  --color-blue-20: #aacdec;
+  --color-blue-30: #73b3e7;
+  --color-blue-40: #4f97d1;
+  --color-blue-50: #005ea2;
+  --color-blue-60: #1a4480;
+  --color-blue-70: #162e51;
+  --color-blue-80: #112240;
+  --color-blue-90: #0d162b;
+
+  /* USWDS Navy - Header/Footer */
+  --color-navy-10: #e6e9ef;
+  --color-navy-20: #c3c9d8;
+  --color-navy-30: #a2a9b8;
+  --color-navy-40: #7a8290;
+  --color-navy-50: #565c65;
+  --color-navy-60: #3d4551;
+  --color-navy-70: #2d2e2f;
+  --color-navy-80: #1e2d4e;
+  --color-navy-90: #162e51;
+  --color-navy-100: #0d162b;
+
+  /* USWDS Red - Errors */
+  --color-red-5:   #f9eded;
+  --color-red-10:  #f2d9d9;
+  --color-red-50:  #b50909;
+  --color-red-60:  #940b0b;
+  --color-red-70:  #6f0d0d;
+
+  /* USWDS Green - Success */
+  --color-green-5:   #e7f4e4;
+  --color-green-10:  #cde5c7;
+  --color-green-50:  #00a91c;
+  --color-green-60:  #008817;
+  --color-green-70:  #006612;
 }
 
 @theme inline {
