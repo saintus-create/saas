@@ -1,124 +1,40 @@
-<script setup lang="ts">
-const columns = [{
-  label: 'Resources',
-  children: [{
-    label: 'Help center'
-  }, {
-    label: 'Docs'
-  }, {
-    label: 'Roadmap'
-  }, {
-    label: 'Changelog'
-  }]
-}, {
-  label: 'Features',
-  children: [{
-    label: 'Affiliates'
-  }, {
-    label: 'Portal'
-  }, {
-    label: 'Jobs'
-  }, {
-    label: 'Sponsors'
-  }]
-}, {
-  label: 'Company',
-  children: [{
-    label: 'About'
-  }, {
-    label: 'Pricing'
-  }, {
-    label: 'Careers'
-  }, {
-    label: 'Blog'
-  }]
-}]
-
-const toast = useToast()
-
-const email = ref('')
-const loading = ref(false)
-
-function onSubmit() {
-  loading.value = true
-
-  toast.add({
-    title: 'Subscribed!',
-    description: 'You\'ve been subscribed to our newsletter.'
-  })
-}
-</script>
-
 <template>
-  <USeparator
-    icon="i-simple-icons-nuxtdotjs"
-    class="h-px"
-  />
+  <footer class="border-t border-neutral-200 bg-white">
+    <div class="max-w-7xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div>
+          <h3 class="text-body-sm font-bold text-[#1b1b1b] mb-3">Resources</h3>
+          <ul class="space-y-2">
+            <li><NuxtLink to="/" class="text-body-sm text-neutral-700 hover:text-blue-50">Help center</NuxtLink></li>
+            <li><NuxtLink to="/docs" class="text-body-sm text-neutral-700 hover:text-blue-50">Docs</NuxtLink></li>
+            <li><NuxtLink to="/changelog" class="text-body-sm text-neutral-700 hover:text-blue-50">Changelog</NuxtLink></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-body-sm font-bold text-[#1b1b1b] mb-3">Features</h3>
+          <ul class="space-y-2">
+            <li><NuxtLink to="/pricing" class="text-body-sm text-neutral-700 hover:text-blue-50">Pricing</NuxtLink></li>
+            <li><NuxtLink to="/" class="text-body-sm text-neutral-700 hover:text-blue-50">Portal</NuxtLink></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-body-sm font-bold text-[#1b1b1b] mb-3">Company</h3>
+          <ul class="space-y-2">
+            <li><NuxtLink to="/" class="text-body-sm text-neutral-700 hover:text-blue-50">About</NuxtLink></li>
+            <li><NuxtLink to="/blog" class="text-body-sm text-neutral-700 hover:text-blue-50">Blog</NuxtLink></li>
+          </ul>
+        </div>
+      </div>
 
-  <UFooter :ui="{ top: 'border-b border-default' }">
-    <template #top>
-      <UContainer>
-        <UFooterColumns :columns="columns">
-          <template #right>
-            <form @submit.prevent="onSubmit">
-              <UFormField
-                name="email"
-                label="Subscribe to our newsletter"
-                size="lg"
-              >
-                <UInput
-                  v-model="email"
-                  type="email"
-                  class="w-full"
-                  placeholder="Enter your email"
-                >
-                  <template #trailing>
-                    <UButton
-                      type="submit"
-                      size="xs"
-                      color="neutral"
-                      label="Subscribe"
-                    />
-                  </template>
-                </UInput>
-              </UFormField>
-            </form>
-          </template>
-        </UFooterColumns>
-      </UContainer>
-    </template>
-
-    <template #left>
-      <p class="text-muted text-body-sm">
-        Built with Nuxt UI • © {{ new Date().getFullYear() }}
-      </p>
-    </template>
-
-    <template #right>
-      <UButton
-        to="https://go.nuxt.com/discord"
-        target="_blank"
-        icon="i-simple-icons-discord"
-        aria-label="Nuxt on Discord"
-        color="neutral"
-        variant="ghost"
-      />
-      <UButton
-        to="https://go.nuxt.com/x"
-        target="_blank"
-        icon="i-simple-icons-x"
-        aria-label="Nuxt on X"
-        color="neutral"
-        variant="ghost"
-      />
-      <UButton
-        to="https://github.com/nuxt-ui-templates/saas"
-        target="_blank"
-        icon="i-simple-icons-github"
-        aria-label="Nuxt UI on GitHub"
-        color="neutral"
-        variant="ghost"
-      />
-    </template>
-  </UFooter>
+      <div class="border-t border-neutral-200 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-body-sm text-neutral-600">
+          Built with Nuxt UI • © {{ new Date().getFullYear() }}
+        </p>
+        <div class="flex items-center gap-4">
+          <NuxtLink to="/" class="text-body-sm text-neutral-700 hover:text-blue-50">Privacy Policy</NuxtLink>
+          <NuxtLink to="/" class="text-body-sm text-neutral-700 hover:text-blue-50">Terms of Service</NuxtLink>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>

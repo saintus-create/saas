@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const route = useRoute()
+const mobileMenuOpen = ref(false)
 
 const items = computed(() => [{
   label: 'Docs',
@@ -18,70 +19,84 @@ const items = computed(() => [{
 </script>
 
 <template>
-  <UHeader>
-    <template #left>
-      <NuxtLink to="/">
-        <AppLogo class="w-auto h-6 shrink-0" />
-      </NuxtLink>
-      <TemplateMenu />
-    </template>
+  <header class="border-b border-neutral-200 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <NuxtLink to="/" class="flex items-center gap-2">
+          <AppLogo />
+        </NuxtLink>
 
-    <UNavigationMenu
-      :items="items"
-      variant="link"
-    />
+        <!-- Navigation - Desktop -->
+        <nav class="hidden md:flex items-center gap-8">
+          <NuxtLink
+            v-for="item in items"
+            :key="item.to"
+            :to="item.to"
+            class="text-body-sm font-semibold text-neutral-700 hover:text-blue-50 transition-colors"
+            :class="{ 'text-blue-50': item.active }"
+          >
+            {{ item.label }}
+          </NuxtLink>
+        </nav>
 
-    <template #right>
-      <UColorModeButton />
+        <!-- Actions -->
+        <div class="flex items-center gap-3">
+          <UColorModeButton />
 
-      <UButton
-        icon="i-lucide-log-in"
-        color="neutral"
-        variant="ghost"
-        to="/login"
-        class="lg:hidden"
-      />
+          <NuxtLink
+            to="/login"
+            class="hidden lg:inline-flex text-body-sm font-semibold text-neutral-700 hover:text-blue-50 transition-colors"
+          >
+            Sign in
+          </NuxtLink>
 
-      <UButton
-        label="Sign in"
-        color="neutral"
-        variant="outline"
-        to="/login"
-        class="hidden lg:inline-flex font-semibold"
-      />
+          <UButton
+            label="Sign up"
+            to="/signup"
+            class="hidden lg:inline-flex bg-blue-50 hover:bg-blue-60 text-white font-semibold"
+          />
 
-      <UButton
-        label="Sign up"
-        color="neutral"
-        trailing-icon="i-lucide-arrow-right"
-        class="hidden lg:inline-flex font-semibold"
-        to="/signup"
-      />
-    </template>
+          <!-- Mobile menu button -->
+          <UButton
+            icon="i-lucide-menu"
+            color="neutral"
+            variant="ghost"
+            class="lg:hidden"
+            @click="mobileMenuOpen = !mobileMenuOpen"
+          />
+        </div>
+      </div>
 
-    <template #body>
-      <UNavigationMenu
-        :items="items"
-        orientation="vertical"
-        class="-mx-2.5"
-      />
-
-      <USeparator class="my-6" />
-
-      <UButton
-        label="Sign in"
-        color="neutral"
-        variant="subtle"
-        to="/login"
-        block
-        class="mb-3"
-      />
-      <UButton
-        label="Sign up"
-        color="neutral"
-        to="/signup"
-        block
-      />
-    </template>
-  </UHeader>
+      <!-- Mobile menu -->
+      <nav v-if="mobileMenuOpen" class="md:hidden py-4 border-t border-neutral-200">
+        <div class="flex flex-col gap-3">
+          <NuxtLink
+            v-for="item in items"
+            :key="item.to"
+            :to="item.to"
+            class="text-body-md font-semibold text-neutral-700 hover:text-blue-50 py-2"
+            @click="mobileMenuOpen = false"
+          >
+            {{ item.label }}
+          </NuxtLink>
+          <USeparator class="my-2" />
+          <NuxtLink
+            to="/login"
+            class="text-body-md font-semibold text-neutral-700 hover:text-blue-50 py-2"
+            @click="mobileMenuOpen = false"
+          >
+            Sign in
+          </NuxtLink>
+          <UButton
+            label="Sign up"
+            to="/signup"
+            block
+            class="bg-blue-50 hover:bg-blue-60 text-white font-semibold"
+            @click="mobileMenuOpen = false"
+          />
+        </div>
+      </nav>
+    </div>
+  </header>
 </template>
