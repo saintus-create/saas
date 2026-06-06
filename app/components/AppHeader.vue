@@ -19,9 +19,9 @@ const items = computed(() => [{
 </script>
 
 <template>
-  <header class="border-b border-neutral-200 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex items-center justify-between h-16">
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0b0d11]/80 backdrop-blur-md border-b border-white/[0.04]">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="flex items-center justify-between h-14">
         <!-- Logo -->
         <NuxtLink to="/" class="flex items-center gap-2">
           <AppLogo />
@@ -33,20 +33,18 @@ const items = computed(() => [{
             v-for="item in items"
             :key="item.to"
             :to="item.to"
-            class="text-body-sm font-semibold text-neutral-700 hover:text-blue-50 transition-colors"
-            :class="{ 'text-blue-50': item.active }"
+            class="text-body-sm text-white/35 hover:text-white/70 transition-colors"
+            :class="{ 'text-white/70': item.active }"
           >
             {{ item.label }}
           </NuxtLink>
         </nav>
 
         <!-- Actions -->
-        <div class="flex items-center gap-3">
-          <UColorModeButton />
-
+        <div class="flex items-center gap-4">
           <NuxtLink
             to="/login"
-            class="hidden lg:inline-flex text-body-sm font-semibold text-neutral-700 hover:text-blue-50 transition-colors"
+            class="hidden lg:inline-flex text-body-sm text-white/35 hover:text-white/70 transition-colors"
           >
             Sign in
           </NuxtLink>
@@ -54,36 +52,36 @@ const items = computed(() => [{
           <UButton
             label="Sign up"
             to="/signup"
-            class="hidden lg:inline-flex bg-blue-50 hover:bg-blue-60 text-white font-semibold"
+            size="sm"
+            class="hidden lg:inline-flex bg-white text-[#0b0d11] hover:bg-white/90 font-semibold rounded-full"
           />
 
           <!-- Mobile menu button -->
           <UButton
             icon="i-lucide-menu"
-            color="neutral"
             variant="ghost"
-            class="lg:hidden"
+            class="lg:hidden text-white/40"
             @click="mobileMenuOpen = !mobileMenuOpen"
           />
         </div>
       </div>
 
       <!-- Mobile menu -->
-      <nav v-if="mobileMenuOpen" class="md:hidden py-4 border-t border-neutral-200">
+      <nav v-if="mobileMenuOpen" class="md:hidden py-4 border-t border-white/[0.04]">
         <div class="flex flex-col gap-3">
           <NuxtLink
             v-for="item in items"
             :key="item.to"
             :to="item.to"
-            class="text-body-md font-semibold text-neutral-700 hover:text-blue-50 py-2"
+            class="text-body-md text-white/40 hover:text-white/70 py-2"
             @click="mobileMenuOpen = false"
           >
             {{ item.label }}
           </NuxtLink>
-          <USeparator class="my-2" />
+          <div class="border-t border-white/[0.04] my-2" />
           <NuxtLink
             to="/login"
-            class="text-body-md font-semibold text-neutral-700 hover:text-blue-50 py-2"
+            class="text-body-md text-white/40 hover:text-white/70 py-2"
             @click="mobileMenuOpen = false"
           >
             Sign in
@@ -92,7 +90,7 @@ const items = computed(() => [{
             label="Sign up"
             to="/signup"
             block
-            class="bg-blue-50 hover:bg-blue-60 text-white font-semibold"
+            class="bg-white text-[#0b0d11] hover:bg-white/90 font-semibold rounded-full"
             @click="mobileMenuOpen = false"
           />
         </div>

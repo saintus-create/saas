@@ -15,47 +15,57 @@ useSeoMeta({
 </script>
 
 <template>
-  <div v-if="page" class="bg-white dark:bg-[#0a0a0a]">
-    <!-- Hero Section -->
-    <section class="border-b border-neutral-200 dark:border-neutral-800">
-      <div class="max-w-5xl mx-auto px-6 py-16">
-        <h1 class="text-heading-2xl font-bold text-[#1b1b1b] dark:text-white mb-4 leading-tight">
-          {{ page.title }}
+  <div v-if="page" class="bg-[#0b0d11] text-white antialiased">
+
+    <!-- Hero -->
+    <section class="relative pt-32 pb-28">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-3xl pointer-events-none" />
+      <div class="max-w-3xl mx-auto px-6 text-center relative">
+        <div class="w-14 h-14 rounded-full border border-white/[0.08] flex items-center justify-center mx-auto mb-10">
+          <UIcon :name="page.hero.icon" class="w-7 h-7 text-white/40" />
+        </div>
+        <h1 class="text-heading-xl font-bold tracking-tight leading-[1.08] mb-6">
+          {{ page.hero.title }}
         </h1>
-        <p class="text-body-lg text-neutral-700 dark:text-neutral-300 mb-8 max-w-3xl">
-          {{ page.description }}
+        <p class="text-body-xl text-white/40 max-w-lg mx-auto mb-10 leading-[1.7]">
+          {{ page.hero.subtitle }}
         </p>
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-3 justify-center">
           <UButton
-            v-for="(link, index) in page.hero.links"
-            :key="index"
-            v-bind="link"
-            :class="index === 0 ? 'bg-blue-50 hover:bg-blue-60 text-white font-semibold' : 'bg-white dark:bg-[#0a0a0a] border-2 border-blue-50 text-blue-50 hover:bg-blue-50 font-semibold'"
+            v-bind="page.hero.cta.primary"
+            size="xl"
+            class="bg-white text-[#0b0d11] hover:bg-white/90 font-semibold rounded-full"
+          />
+          <UButton
+            v-bind="page.hero.cta.secondary"
+            size="xl"
+            variant="ghost"
+            class="text-white/40 hover:text-white/70 rounded-full"
           />
         </div>
       </div>
     </section>
 
-    <!-- Features Grid -->
-    <section class="border-b border-neutral-200 dark:border-neutral-800 bg-gray-5 dark:bg-[#111111]">
-      <div class="max-w-5xl mx-auto px-6 py-16">
-        <h2 class="text-heading-xl font-bold text-[#1b1b1b] dark:text-white mb-4">
-          {{ page.features.title }}
+    <!-- 2x2 Feature Grid -->
+    <section class="py-24">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-heading-lg font-bold tracking-tight leading-[1.08] mb-4 text-center">
+          {{ page.featureGrid.title }}
         </h2>
-        <p class="text-body-md text-neutral-700 dark:text-neutral-300 mb-12 max-w-3xl">
-          {{ page.features.description }}
+        <p class="text-body-lg text-white/35 max-w-lg mx-auto text-center mb-16 leading-[1.7]">
+          {{ page.featureGrid.description }}
         </p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.06] rounded-[var(--radius-x04)] overflow-hidden">
           <div
-            v-for="(item, index) in page.features.items"
+            v-for="(item, index) in page.featureGrid.items"
             :key="index"
-            class="bg-white dark:bg-[#0a0a0a] border border-neutral-200 dark:border-neutral-800 p-6 hover:border-blue-50 transition-colors"
+            class="bg-[#0b0d11] p-10"
           >
-            <h3 class="text-heading-sm font-bold text-[#1b1b1b] dark:text-white mb-3">
+            <UIcon :name="item.icon" class="w-8 h-8 text-white/25 mb-5" />
+            <h3 class="text-heading-xs font-bold tracking-tight leading-[1.08] mb-3 text-white/90">
               {{ item.title }}
             </h3>
-            <p class="text-body-md text-neutral-700 dark:text-neutral-300 leading-relaxed">
+            <p class="text-body-md text-white/35 leading-[1.7]">
               {{ item.description }}
             </p>
           </div>
@@ -63,92 +73,145 @@ useSeoMeta({
       </div>
     </section>
 
-    <!-- Sections -->
-    <section
-      v-for="(section, index) in page.sections"
-      :key="index"
-      :class="index % 2 === 0 ? 'bg-white dark:bg-[#0a0a0a]' : 'bg-gray-5 dark:bg-[#111111]'"
-      class="border-b border-neutral-200 dark:border-neutral-800"
-    >
-      <div class="max-w-5xl mx-auto px-6 py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div>
-            <h2 class="text-heading-xl font-bold text-[#1b1b1b] dark:text-white mb-4">
-              {{ section.title }}
-            </h2>
-            <p class="text-body-md text-neutral-700 dark:text-neutral-300 leading-relaxed">
-              {{ section.description }}
-            </p>
-          </div>
-          
-          <div v-if="section.features" class="space-y-6">
-            <div
-              v-for="(feature, fIndex) in section.features"
-              :key="fIndex"
-              class="bg-white dark:bg-[#0a0a0a] border border-neutral-200 dark:border-neutral-800 p-5 hover:border-blue-50 transition-colors"
-            >
-              <h3 class="text-body-lg font-bold text-[#1b1b1b] dark:text-white mb-2">
-                {{ feature.name }}
-              </h3>
-              <p class="text-body-md text-neutral-700 dark:text-neutral-300">
-                {{ feature.description }}
-              </p>
+    <!-- Banner -->
+    <section class="py-24">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-heading-lg font-bold tracking-tight leading-[1.08] mb-6">
+          {{ page.banner.title }}
+        </h2>
+        <p class="text-body-xl text-white/35 leading-[1.7] max-w-xl mx-auto">
+          {{ page.banner.subtitle }}
+        </p>
+      </div>
+    </section>
+
+    <!-- Platform / Tools -->
+    <section class="py-24">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <h2 class="text-heading-md font-bold tracking-tight leading-[1.08] mb-4">
+          {{ page.platform.title }}
+        </h2>
+        <p class="text-body-lg text-white/35 max-w-lg mx-auto mb-14 leading-[1.7]">
+          {{ page.platform.description }}
+        </p>
+        <div class="flex flex-wrap justify-center gap-10">
+          <div
+            v-for="(tool, index) in page.platform.tools"
+            :key="index"
+            class="flex flex-col items-center gap-2.5"
+          >
+            <div class="w-12 h-12 rounded-[var(--radius-x03)] border border-white/[0.06] flex items-center justify-center">
+              <UIcon :name="tool.icon" class="w-5 h-5 text-white/30" />
             </div>
+            <span class="text-body-sm text-white/25">{{ tool.label }}</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="border-b border-neutral-200 dark:border-neutral-800">
-      <div class="max-w-5xl mx-auto px-6 py-16">
-        <h2 class="text-heading-xl font-bold text-[#1b1b1b] dark:text-white mb-4">
-          {{ page.testimonials.title }}
+    <!-- Showcase Grid -->
+    <section class="py-24">
+      <div class="max-w-5xl mx-auto px-6">
+        <h2 class="text-heading-lg font-bold tracking-tight leading-[1.08] mb-4 text-center">
+          {{ page.showcase.title }}
         </h2>
-        <p class="text-body-md text-neutral-700 dark:text-neutral-300 mb-12">
-          {{ page.testimonials.description }}
+        <p class="text-body-lg text-white/35 max-w-lg mx-auto text-center mb-16 leading-[1.7]">
+          {{ page.showcase.description }}
         </p>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/[0.06] rounded-[var(--radius-x04)] overflow-hidden">
           <div
-            v-for="(testimonial, index) in page.testimonials.items.slice(0, 4)"
+            v-for="(item, index) in page.showcase.items"
             :key="index"
-            class="bg-blue-5 dark:bg-blue-900/20 border-l-4 border-blue-50 p-6"
+            class="bg-[#0b0d11] p-8"
           >
-            <blockquote class="text-body-md text-neutral-800 dark:text-neutral-200 mb-4 leading-relaxed italic">
-              "{{ testimonial.quote }}"
-            </blockquote>
-            <div class="border-t border-blue-20 dark:border-blue-800 pt-4">
-              <cite class="text-body-sm font-bold text-[#1b1b1b] dark:text-white not-italic">
-                {{ testimonial.user.name }}
-              </cite>
-              <p class="text-body-xs text-neutral-600 dark:text-neutral-400">
-                {{ testimonial.user.description }}
-              </p>
+            <div class="w-10 h-10 rounded-[var(--radius-x02)] border border-white/[0.06] flex items-center justify-center mb-5">
+              <UIcon :name="item.icon" class="w-5 h-5 text-white/25" />
             </div>
+            <h3 class="text-heading-xs font-bold tracking-tight leading-[1.08] mb-2 text-white/90">
+              {{ item.title }}
+            </h3>
+            <p class="text-body-md text-white/30 leading-[1.7]">
+              {{ item.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's New -->
+    <section class="py-24">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-heading-lg font-bold tracking-tight leading-[1.08] mb-4 text-center">
+          {{ page.whatsNew.title }}
+        </h2>
+        <p class="text-body-lg text-white/35 max-w-lg mx-auto text-center mb-16 leading-[1.7]">
+          {{ page.whatsNew.description }}
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/[0.06] rounded-[var(--radius-x04)] overflow-hidden">
+          <div
+            v-for="(item, index) in page.whatsNew.items"
+            :key="index"
+            class="bg-[#0b0d11] p-8"
+          >
+            <span class="text-body-sm text-white/20 mb-2 block">{{ item.date }}</span>
+            <h3 class="text-heading-xs font-bold tracking-tight leading-[1.08] mb-2 text-white/80">
+              {{ item.title }}
+            </h3>
+            <p class="text-body-md text-white/30 leading-[1.7]">
+              {{ item.description }}
+            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section>
-      <div class="max-w-5xl mx-auto px-6 py-16">
-        <h2 class="text-heading-xl font-bold text-[#1b1b1b] dark:text-white mb-4">
+    <section class="py-28">
+      <div class="max-w-3xl mx-auto px-6 text-center">
+        <h2 class="text-heading-lg font-bold tracking-tight leading-[1.08] mb-4">
           {{ page.cta.title }}
         </h2>
-        <p class="text-body-md text-neutral-700 dark:text-neutral-300 mb-8">
+        <p class="text-body-xl text-white/35 mb-10 max-w-lg mx-auto leading-[1.7]">
           {{ page.cta.description }}
         </p>
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-3 justify-center">
           <UButton
             v-for="(link, index) in page.cta.links"
             :key="index"
             v-bind="link"
-            :class="index === 0 ? 'bg-blue-50 hover:bg-blue-60 text-white font-semibold' : 'bg-white dark:bg-[#0a0a0a] border-2 border-blue-50 text-blue-50 hover:bg-blue-50 font-semibold'"
+            size="xl"
+            :class="index === 0 ? 'bg-white text-[#0b0d11] hover:bg-white/90 font-semibold rounded-full' : 'text-white/40 hover:text-white/70 rounded-full'"
           />
         </div>
       </div>
     </section>
+
+    <!-- Resource Footer -->
+    <footer class="py-20 border-t border-white/[0.04]">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+          <div
+            v-for="(column, index) in page.resourceFooter.columns"
+            :key="index"
+          >
+            <div class="flex items-center gap-2 mb-5">
+              <UIcon :name="column.icon" class="w-4 h-4 text-white/20" />
+              <span class="text-body-sm font-semibold text-white/50 tracking-tight">{{ column.title }}</span>
+            </div>
+            <ul class="space-y-3">
+              <li v-for="(link, lIndex) in column.links" :key="lIndex">
+                <NuxtLink
+                  :to="link.to"
+                  :target="link.target"
+                  class="text-body-md text-white/25 hover:text-white/50 transition-colors leading-[1.7]"
+                >
+                  {{ link.label }}
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>

@@ -37,37 +37,50 @@ export const collections = {
     source: '0.index.yml',
     type: 'page',
     schema: z.object({
-      hero: z.object(({
-        links: z.array(createLinkSchema())
-      })),
-      sections: z.array(
-        createBaseSchema().extend({
-          id: z.string().nonempty(),
-          orientation: orientationEnum.optional(),
-          reverse: z.boolean().optional(),
-          features: z.array(createFeatureItemSchema())
+      hero: z.object({
+        icon: z.string().nonempty().editor({ input: 'icon' }),
+        title: z.string().nonempty(),
+        subtitle: z.string().nonempty(),
+        cta: z.object({
+          primary: createLinkSchema(),
+          secondary: createLinkSchema()
         })
-      ),
-      features: createBaseSchema().extend({
+      }),
+      featureGrid: createBaseSchema().extend({
+        items: z.array(createFeatureItemSchema().extend({
+          accent: z.string().optional()
+        }))
+      }),
+      banner: z.object({
+        title: z.string().nonempty(),
+        subtitle: z.string().nonempty(),
+        background: z.string().optional()
+      }),
+      platform: createBaseSchema().extend({
+        tools: z.array(z.object({
+          icon: z.string().nonempty().editor({ input: 'icon' }),
+          label: z.string().nonempty()
+        }))
+      }),
+      showcase: createBaseSchema().extend({
         items: z.array(createFeatureItemSchema())
       }),
-      testimonials: createBaseSchema().extend({
-        headline: z.string().optional(),
-        items: z.array(
-          z.object({
-            quote: z.string().nonempty(),
-            user: z.object({
-              name: z.string().nonempty(),
-              description: z.string().nonempty(),
-              to: z.string().nonempty(),
-              target: z.string().nonempty(),
-              avatar: createImageSchema()
-            })
-          })
-        )
+      whatsNew: createBaseSchema().extend({
+        items: z.array(z.object({
+          title: z.string().nonempty(),
+          description: z.string().nonempty(),
+          date: z.string().nonempty()
+        }))
       }),
       cta: createBaseSchema().extend({
         links: z.array(createLinkSchema())
+      }),
+      resourceFooter: z.object({
+        columns: z.array(z.object({
+          icon: z.string().nonempty().editor({ input: 'icon' }),
+          title: z.string().nonempty(),
+          links: z.array(createLinkSchema())
+        }))
       })
     })
   }),

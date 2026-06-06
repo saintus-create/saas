@@ -4,59 +4,101 @@
 
 @source "../../../content/**/*";
 
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@utility grid-pattern-dark {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@utility glow-blue {
+  background: radial-gradient(circle at center, rgba(16, 116, 204, 0.35) 0%, rgba(4, 94, 178, 0.1) 40%, transparent 70%);
+}
+
+@utility gradient-pondwater {
+  background: linear-gradient(135deg, #1074CC 0%, #0d162b 100%);
+}
+
+@utility gradient-navy {
+  background: linear-gradient(135deg, #045EB2 0%, #0a1120 100%);
+}
+
+@utility gradient-cta {
+  background: linear-gradient(135deg, #1074CC 0%, #045EB2 50%, #0d162b 100%);
+}
+
 @theme static {
-  --font-sans: 'Public Sans', sans-serif;
+  --font-sans: 'DuckSans', sans-serif;
 
-  /* USWDS Type Scale - Official Design Kit Values */
-  --text-3xs: 0.8125rem;    /* 13px */
-  --text-2xs: 0.875rem;     /* 14px */
-  --text-xs: 0.9375rem;     /* 15px */
-  --text-sm: 1rem;          /* 16px */
-  --text-md: 1.0625rem;     /* 17px - USWDS default body */
-  --text-lg: 1.125rem;      /* 18px */
-  --text-xl: 1.25rem;       /* 20px */
-  --text-2xl: 1.5rem;       /* 24px */
-  --text-3xl: 2rem;         /* 32px */
-  --text-4xl: 2.5rem;       /* 40px */
-  --text-5xl: 3rem;         /* 48px */
+  /* DuckDuckGo Type Scale */
+  --text-title-01: 64px;
+  --text-title-02: 52px;
+  --text-title-03: 44px;
+  --text-title-04: 36px;
+  --text-title-05: 24px;
+  --text-title-06: 20px;
+  
+  --text-body-xxl: 24px;
+  --text-body-xl: 20px;
+  --text-body-lg: 16px;
+  --text-body-md: 14px;
+  --text-body-sm: 12px;
+  
+  /* DuckDuckGo Heading Tokens */
+  --text-heading-xl: 64px;
+  --text-heading-lg: 52px;
+  --text-heading-md: 44px;
+  --text-heading-sm: 36px;
+  --text-heading-xs: 24px;
 
-  /* USWDS Heading Tokens */
-  --text-heading-xs: 1.0625rem;    /* 17px - h6 */
-  --text-heading-sm: 1.25rem;      /* 20px - h5 */
-  --text-heading-md: 1.5rem;       /* 24px - h4 */
-  --text-heading-lg: 2rem;         /* 32px - h3 */
-  --text-heading-xl: 2.5rem;       /* 40px - h2 */
-  --text-heading-2xl: 3rem;        /* 48px - h1 */
-
-  /* USWDS Body Tokens */
-  --text-body-xs: 0.8125rem;       /* 13px */
-  --text-body-sm: 0.9375rem;       /* 15px */
-  --text-body-md: 1.0625rem;       /* 17px - default */
-  --text-body-lg: 1.125rem;        /* 18px */
-
-  /* USWDS Blue - Primary Brand */
-  --color-blue-5:  #eff6fb;
-  --color-blue-10: #d9e8f6;
-  --color-blue-20: #aacdec;
-  --color-blue-30: #73b3e7;
-  --color-blue-40: #4f97d1;
-  --color-blue-50: #005ea2;
-  --color-blue-60: #1a4480;
-  --color-blue-70: #162e51;
-  --color-blue-80: #112240;
-  --color-blue-90: #0d162b;
-
-  /* USWDS Navy - Header/Footer */
-  --color-navy-10: #e6e9ef;
-  --color-navy-20: #c3c9d8;
-  --color-navy-30: #a2a9b8;
-  --color-navy-40: #7a8290;
-  --color-navy-50: #565c65;
-  --color-navy-60: #3d4551;
-  --color-navy-70: #2d2e2f;
-  --color-navy-80: #1e2d4e;
-  --color-navy-90: #162e51;
-  --color-navy-100: #0d162b;
+  /* DuckDuckGo Colors - Exact Token Values */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  
+  /* DuckDuckGo Gray Scale */
+  --color-gray-0: #fafafa;
+  --color-gray-10: #f5f5f5;
+  --color-gray-20: #eeeeee;
+  --color-gray-30: #cccccc;
+  --color-gray-40: #aaaaaa;
+  --color-gray-50: #888888;
+  --color-gray-60: #686868;
+  --color-gray-70: #484848;
+  --color-gray-80: #383838;
+  --color-gray-90: #282828;
+  --color-gray-100: #181818;
+  --color-gray-111: #111111;
+  
+  /* DuckDuckGo Pondwater - Sinister Mature (deeper blues) */
+  --color-blue-50: #1074CC;
+  --color-blue-60: #045EB2;
+  --color-blue-70: #0a4a8a;
+  --color-navy-100: #0a1120;
+  
+  /* DuckDuckGo Border Radius */
+  --radius-full: 999px;
+  --radius-x01: 4px;
+  --radius-x02: 8px;
+  --radius-x03: 12px;
+  --radius-x04: 16px;
+  --radius-x05: 20px;
+  --radius-x06: 24px;
+  --radius-x08: 32px;
 
   /* USWDS Red - Errors */
   --color-red-5:   #f9eded;
@@ -159,10 +201,21 @@
 }
 
 @layer base {
-  h1, h2, h3, h4, h5, h6, p, span, li, a, label, td, th, blockquote, figcaption {
+  /* Headings: tight tracking, authoritative */
+  h1, h2, h3, h4, h5, h6 {
     text-box-trim: both;
     text-box-edge: cap alphabetic;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
   }
+  
+  /* Body text: airy, relaxed reading */
+  p, span, li, a, label, blockquote, figcaption {
+    text-box-trim: both;
+    text-box-edge: cap alphabetic;
+    line-height: 1.7;
+  }
+  
   * {
     @apply outline-ring/50;
   }
