@@ -288,3 +288,27 @@
     transparent
   );
 }
+
+/* Slide Deck */
+.slide-deck {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.slide-deck::-webkit-scrollbar {
+  display: none;
+}
+
+.slide-deck .slide {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
